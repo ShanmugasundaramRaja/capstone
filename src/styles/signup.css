@@ -1,0 +1,14 @@
+
+
+
+.icons{
+color:#547EEB;
+  font-size: 24px;
+}
+
+.but:hover{
+background-color: rgb(23, 23, 147)!important;
+color:white;
+border:3px solid yellow!important
+}
+

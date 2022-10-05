@@ -1,0 +1,96 @@
+*{
+   
+    text-align: center;
+    font-family: 'Kodchasan', sans-serif;
+    
+}
+
+.bigo{
+    height: 100vh;
+    display:flex;
+    flex-flow:column;
+    justify-content: space-around;
+}
+
+
+.butcir{
+    margin-right:10px;
+    border-radius: 24px !important;
+    background-color:#547EEB;
+   
+    width:10rem
+}
+.butcirdel{
+    margin-right:10px;
+    border-radius: 24px !important;
+    background-color:#547EEB;
+   
+    width:3rem
+}
+.butciredit{
+    margin-right:10px;
+    border-radius: 24px !important;
+    background-color:#547EEB;
+   
+    width:3rem
+}
+.butciredit:hover{
+  background-color: white;
+}
+.butcirdel:hover{
+    background-color: white;
+}
+
+.bigc{
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    background-color: blanchedalmond;
+    color:blanchedalmond;
+    margin-right:1%;
+}
+
+.smallc{
+    border-radius: 50%;
+    width:20px;
+    height:20px;
+    background-color:brown;
+    color:brown;
+    margin-top:5%;
+}
+.outer{
+    display: flex;
+    width:100vw;
+    height:20vh;
+    justify-content: center;
+    align-items:center ;
+    
+}
+#background-video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .link{
+    text-decoration: none
+  }
+
+  .gif1{
+    background:url(https://i.gifer.com/OH9P.gif);
+    background-size: contain
+  }
+  .gif2{
+    background:url(https://i.gifer.com/OuSn.gif);
+    background-size: contain
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@300&display=swap');
+
+

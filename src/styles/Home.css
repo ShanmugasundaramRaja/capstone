@@ -1,0 +1,39 @@
+.homebtn {
+    padding: .45rem 1.5rem .35rem;
+  }
+  
+  .gradient-custom {
+   
+
+  
+
+    background: linear-gradient(to right,rgb(4, 158, 166),rgb(164, 212, 251))
+  }
+  .back{
+   
+
+  
+
+    background: url('https://cdn1.home24.net/images/media/catalog/product/800x800/png/-/1/-1000304867-211104-11261000140-IMAGE-P000000001000304867.webp' )
+  }
+
+  .back2{
+   
+
+  
+
+    background: url('https://media.istockphoto.com/vectors/horizontal-vector-illustration-of-an-empty-sky-blue-coloured-grungy-vector-id1139678803?k=20&m=1139678803&s=612x612&w=0&h=jGhaWq_34qr6OQlJMlf4doDv7txteI0fVPDFG3sPzew=');
+  background-color: white;}
+
+
+
+  *{
+    box-sizing: border-box;
+  }
+  #upload-photo {
+    opacity: 0;
+
+    z-index: -1;
+ }
+
+
