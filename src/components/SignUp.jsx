@@ -9,7 +9,7 @@
 import { Container, Row, Col, Form } from "react-bootstrap";
 
     
-        export default function SignUp({handleAction,setEmail,setPassword}){
+        export default function SignUp({handleAction,handleChange,user}){
 
          
         
@@ -19,7 +19,7 @@ import { Container, Row, Col, Form } from "react-bootstrap";
              
             
               <>
-              <Container fluid className="back">
+              <Container fluid className="back" style={{height:'100vh'}}>
                 <Row>
                     <Col md={7} classNameName="d-none d-md-block" >
                         <div style={{marginTop:'30%'}} >
@@ -36,46 +36,54 @@ import { Container, Row, Col, Form } from "react-bootstrap";
                         </div>
                     
                     </Col>
-                    <Col md={5} style={{marginTop:'5%'}}>
+                    <Col md={5} >
 
                     
                   
             
             
-                        <Form className="back2" style={{margin:'10%',padding:'20px',border:'4px solid white',borderRadius:'24px'}} >
+                        <div className="back2" style={{margin:'5%',padding:'20px',border:'4px solid white',borderRadius:'24px'}} >
                         
                          
                           <Row>
-                            <Col md={6} className=" mb-4">
-                            <Form.Group className="mb-3" >
-        <Form.Label>First Name</Form.Label>
-        <Form.Control type="text" />
-        </Form.Group>
+                            <Col  className=" mb-4 d-flex flex-column">
+                            <label for="fname">First Name</label>
+          
+                            <input type="text" id="fname" className="inputs" name="firstname"   placeholder="firstname"  onChange={handleChange} ></input>
                             </Col>
-                            <Col md={6} className=" mb-4">
-                            <Form.Group className="mb-3" >
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control type="text"/>
-        </Form.Group>
-                            </Col>
+                           
                           </Row>
+                          <Row>
+                          <Col  className=" mb-4 d-flex flex-column">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lastname"  className="inputs"  placeholder="lastname"  onChange={handleChange} ></input>
+       
+                            </Col>
 
-                          <Form.Group className="mb-3" >
-        <Form.Label>Date of Birth</Form.Label>
-        <Form.Control />
-        </Form.Group>
+                          </Row>
+                          <Row>
+                          <Col  className=" mb-4 d-flex flex-column">
+                          
+                          <label for="dob">Date of birth</label>
+                          <input type="date" id="dob" name="dob" className="inputs" value={user.dob}  placeholder="date of birth" onChange={handleChange} ></input>
+                          </Col>
+                          </Row>
             
-                        
-                          <Form.Group className="mb-3" >
-        <Form.Label>E-mail address</Form.Label>
-        <Form.Control type="email" onChange={(e) => setEmail(e.target.value)}/>
-        </Form.Group>
+                          <Row>
+                          <Col  className=" mb-4 d-flex flex-column">
+                          <label for="email">Email</label>
+        <input type="email" id="email" name="email" value={user.email} className="inputs"   placeholder="email" onChange={handleChange}></input>
+       </Col>
+       </Row>
+       <Row>
+                          <Col  className=" mb-4 d-flex flex-column">
             
-                          <Form.Group className="mb-3" >
-        <Form.Label>Passsword</Form.Label>
-        <Form.Control type="password"  onChange={(e) => setPassword(e.target.value)} />
-        </Form.Group>
-            
+                          
+        <label for="password">Password</label>
+        <input type="password" name="password" value={user.password} className="inputs"   placeholder="password" onChange={handleChange}></input>
+       
+            </Col>
+            </Row>
                         
                          
                          <button  onClick={handleAction}className="btn btn-block mb-4 " style={{background:'#547EEB',border:'2px solid white',borderRadius:'24px'}}>
@@ -106,7 +114,7 @@ import { Container, Row, Col, Form } from "react-bootstrap";
                             </button>
                             </div>
                           </div>
-                        </Form>
+                        </div>
                         </Col>
                         </Row>
                         </Container>

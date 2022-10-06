@@ -116,7 +116,7 @@ export default function ToDo() {
         </Card.Text>
         <Button onClick={() => setShowS(true)} className="butcir">Save changes</Button>
         <Button variant="danger" onClick={() => setShow(true)} className="butcir">Discard</Button>
-        <Link to="/map"><Button variant="success"  className="butcir">Mapview</Button></Link>
+        
        
       </Card.Body>
     </Card>

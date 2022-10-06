@@ -10,6 +10,23 @@ import { useEffect } from "react";
 
 
 export default function Home(){
+  const handleLogout = () => {
+    sessionStorage.removeItem('Auth Token');
+    navigate('/signin')
+}
+
+let navigate = useNavigate();
+useEffect(() => {
+    let authToken = sessionStorage.getItem('Auth Token')
+
+    if (authToken) {
+        navigate('/home')
+    }
+
+    if (!authToken) {
+        navigate('/')
+    }
+}, [])
 
 
     
@@ -48,7 +65,7 @@ for(var i=0;i<num;i++){
 <Container fluid style={{padding:0,width:'100vw'}} >
 <Row>
 <Col xs={12}  >
-    {<NavBar/>}
+    {<NavBar handleLogout={handleLogout}/>}
 
 
 </Col>

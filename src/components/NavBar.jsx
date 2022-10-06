@@ -5,7 +5,7 @@ import { BsFillBellFill } from "react-icons/bs";
 import {FaGlobeAmericas,FaRegEnvelope,FaHome} from "react-icons/fa"
 import {Link} from "react-router-dom"
 
-export default function NavBar(){
+export default function NavBar({handleLogout}){
     return(
         <Nav className="navbar navbar-expand-lg back2" style={{color:'black'}}>
 
@@ -74,9 +74,9 @@ export default function NavBar(){
     
 
      
-      <Link to="/"> <button classNameName="btn ml-2 p-3" type="button" style={{border:"1px solid white",borderRadius:'24px',background:'transparent'}} >
+      <button onClick={handleLogout} classNameName="btn ml-2 p-3" type="button" style={{border:"1px solid white",borderRadius:'24px',background:'transparent'}} >
           Sign out
-        </button></Link>
+        </button>
        
      
     

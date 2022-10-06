@@ -1,42 +1,14 @@
-import { useState } from "react";
+
 import React from "react"
+import NewWeather from "./NewWeather";
 
 
 export default function LeftToDo(){
 
-  const [data,setData]=useState([])
-  const[place,setPlace]=useState()
-  const APPkey = "a8e75072cafbdeb1e4142039e44d882c";
-  let city;
-
-function handleChange(e){
-city=e.target.value
-}
 
 
 
  
-const   handleSubmit= async ()=> {
-  setPlace(city)
- 
-  
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${APPkey}&units=metric`
-
-  
-    await fetch(url)
-    .then(response => response.json())
-    .then(file => {setData(file)
-    console.log(file)
-
-    
-    
-
-    })
-    .catch(() => {
-     console.log("Error");
-    });
-  
-};
 
 
   
@@ -46,12 +18,9 @@ const   handleSubmit= async ()=> {
     return(
         <>
        
-        <div className="gif1" style={{width:"100%",height:"48%",borderRadius:'24px',margin:'10px',color:'whitesmoke'}}>
+        <div className="gif1" style={{width:"100%",height:"300px",borderRadius:'24px',margin:'10px',color:'whitesmoke'}}>
        
-          <h1 >{data.name} 10 °C
-          
-</h1><h1>Windy</h1><br /><br /><br /><br /><br /><br />
-<div className="pb-3"><input type="text" style={{borderRadius:"24px"}} value={place} onChange={handleChange}/><button style={{borderRadius:"24px",backgroundColor:"lightyellow"}} onClick={handleSubmit}>Submit</button></div>
+         <NewWeather/>
 
         </div>
         <div  style={{width:"100%",height:"47%",borderRadius:'24px',margin:'10px',backgroundColor:'whitesmoke'}}>

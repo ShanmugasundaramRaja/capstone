@@ -36,7 +36,7 @@ function ProfileCard() {
       <Avatar src={url} sx={{ width: 150, height: 150 }} />
       <label for="upload-photo">Add profile image</label>
       <input type="file" id="upload-photo" onChange={handleImageChange} />
-      <button className="butcir" onClick={handleSubmit}>Submit</button>
+      <button className="btn btn-block" style={{borderRadius:"24px",width:'20%',backgroundColor:'aliceblue'}} onClick={handleSubmit}>Submit</button>
     </div>
   );
 }

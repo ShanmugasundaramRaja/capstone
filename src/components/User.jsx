@@ -8,7 +8,9 @@ import NavBar from "./NavBar";
 import Footer from "./Footer"
 
 
-export default function User(){
+export default function User({user}){
+
+
 
     const [show, setShow] = useState(false);
     /*const [images,setImages]=useState([]);*/
@@ -74,70 +76,43 @@ images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
          
           <Row>
             <Col md={6} className=" mb-4">
-            <InputGroup className="mb-3">
-        
-        <Form.Control
-          placeholder="Username"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-        <InputGroup.Text id="basic-addon1"  onClick={handleShow}>Edit</InputGroup.Text>
-      </InputGroup>
+           
+          
+                            <input type="text" id="fname" className="inputs" name="firstname" value={user.firstname}   placeholder="firstname" onClick={handleShow}  ></input>
+     
             </Col>
             <Col md={6} className=" mb-4">
-            <InputGroup className="mb-3">
-        
-        <Form.Control
-          placeholder="Username"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-        <InputGroup.Text id="basic-addon1" onClick={handleShow}>Edit</InputGroup.Text>
-      </InputGroup>
+            <input type="text" id="fname" className="inputs" name="lasttname" value={user.lastname}   placeholder="lasttname" onClick={handleShow}  ></input>
+     
             </Col>
           </Row>
+          <Row className="mt-3">
+          
+            <input type="date" id="fname" className="inputs" name="dob" value={user.dob}   placeholder="dob" onClick={handleShow}   ></input>
+           
+         
+         <input type="text" id="fname" className="inputs mt-3" name="email" value={user.email}   placeholder="email" onClick={handleShow}  ></input>
+         
+          
+          </Row>
 
-          <InputGroup className="mb-3">
-        
-        <Form.Control
-          placeholder="Date of birth"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-          type="date"
-        />
-        <InputGroup.Text id="basic-addon1"  onClick={handleShow}>Edit</InputGroup.Text>
-      </InputGroup>
+          
 
-<InputGroup className="mb-3">
-        
-        <Form.Control
-          placeholder="Email address"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-          type="email"
-        />
-        <InputGroup.Text id="basic-addon1"  onClick={handleShow}>Edit</InputGroup.Text>
-      </InputGroup>
+      
+     <Row className="mt-3">
+   
+      <input type="password" id="fname" className="inputs" name="password" value={user.password}   placeholder="password" onClick={handleShow}  ></input>
+     
+      <input type="text" id="fname" className="inputs mt-3" name="number" value={user.number}   placeholder="number" onClick={handleShow}  ></input>
 
-      <InputGroup className="mb-3">
-        
-        <Form.Control
-          placeholder="Password"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-          type="password"
-        />
-        <InputGroup.Text id="basic-addon1"  onClick={handleShow}>Change</InputGroup.Text>
-      </InputGroup>
-      <InputGroup className="mb-3">
-        
-        <Form.Control
-          placeholder="Contact number"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-        <InputGroup.Text id="basic-addon1"  onClick={handleShow}>Edit</InputGroup.Text>
-      </InputGroup>
+  
+
+      </Row>
+
+     
+     
+      
+     
        
         </Form>
         </Col>

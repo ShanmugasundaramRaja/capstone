@@ -37,3 +37,11 @@
  }
 
 
+ .inputs{
+  border-radius: 24px;
+  outline: none;
+  border: none;
+  height:40px;
+  background-color: aliceblue;
+ }
+

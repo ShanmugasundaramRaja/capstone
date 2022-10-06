@@ -5,13 +5,14 @@
 import { Row,Col,Container,Form } from "react-bootstrap"
 import Image from 'react-bootstrap/Image'
 import '../styles/signin.css';
+import { Link } from "react-router-dom";
 
 
 
    
 
     
-    export default function SignIn({setEmail,setPassword,handleAction}){
+    export default function SignIn({handleAction,handleChange,user}){
 
       
       
@@ -31,37 +32,46 @@ import '../styles/signin.css';
               
               </div>
       
-              <div className="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+              
       
-                <Form style={{width:"33rem"}}>
-      
-                  <h3 className="fw-normal mb-3 pb-3" >Log in</h3>
-      
-                  <Form.Group className="mb-3" >
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="text"  onChange={(e) => setEmail(e.target.value)}style={{borderRadius:"24px"}}/>
-        </Form.Group>
-      
-                  <Form.Group className="mb-3" >
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password"  onChange={(e) => setPassword(e.target.value)}style={{borderRadius:"24px"}} />
-        </Form.Group>
-      
+                
+
+                
+       
+              <Row style={{marginTop:'100px'}}>
+                          <Col  className=" mb-4 d-flex flex-column">
+                          <label for="email">Email</label>
+        <input type="email" id="email" name="email" value={user.email} className="inputs"   placeholder="email" onChange={handleChange}></input>
+       </Col>
+       </Row>
+       <Row>
+                          <Col  className=" mb-4 d-flex flex-column">
+            
+                          
+        <label for="password">Password</label>
+        <input type="password" name="password" value={user.password} className="inputs"   placeholder="password" onChange={handleChange}></input>
+       
+            </Col>
+            </Row>
+                        
+                         
+                         
                  
                     
                     <div className="pt-1 mb-4">
                      
                     <button style={{borderRadius:'24px'}} className="btn btn-block"  onClick={handleAction}>Login</button>
+                    
                   </div>
                     
                     
       
                   <p className="small mb-5 pb-lg-2"><a className="text-muted" href="#!">Forgot password?</a></p>
-                  <p>Don't have an account? <a href="#!" className="link-info">Register here</a></p>
+                  <p>Don't have an account? <Link to="/signup"><a href="#!" className="link-info">Register here</a></Link></p>
       
-                </Form>
+               
       
-              </div>
+              
       
             </Col>
             <Col md={6} className=" px-0 d-none d-md-block">
