@@ -4,25 +4,27 @@ import { Routes, Route,useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import Landing from './components/Landing';
-import Exp from './components/Hooks';
+
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Home from './components/Home'
-import FormSample from './components/Form';
+
 import ToDo from './components/Todo';
 import Map from './components/Map';
 import Carouse from './components/Carouse';
-import PhotoCar from './components/PhotoCar';
+
 import User from './components/User';
-import CardGen from './components/CardGen';
-import UploadPhotos from './components/UploadPhotos';
-import Box from './components/Box';
+
 import {app} from './firebase'
 import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewWeather from './components/NewWeather';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,updatePassword,updateEmail,deleteUser } from 'firebase/auth'
+
+import NavBar from './components/NavBar';
+import Header from './components/Header';
+import Fav from './components/Fav';
    
 
 
@@ -35,11 +37,46 @@ function App() {
   const [user,setUser]=useState({email:"",password:"",firstname:"",lastname:"",dob:"",number:""})
  let navigate = useNavigate();
  const authentication = getAuth();
+ const customer=authentication.currentUser;
+ 
+ let newpass;
+ let newmail;
+
+
+
+ const deleteMe=()=>{
+  deleteUser(customer).then(()=>{
+    console.log("User deleted ")
+  }).catch((error)=>{console.log(error)})
+ }
+
+ const handleMail=(e)=>{
+newmail=e.target.value
+ }
+ const handlePass=(e)=>{
+  newpass=e.target.value
+   }
+
+ const changePass=()=>{
+  updatePassword(customer,newpass).then(()=>{
+    console.log("Password changed")
+  }).catch((error)=>{console.log(error)})
+ }
+ const changeMail=()=>{
+  updateEmail(customer,newmail).then(()=>{
+    console.log("Email changed")
+  }).catch((error)=>{console.log(error)})
+ }
 
   function  handleChange(e){
     
     setUser({...user,[e.target.name]:e.target.value})
   }
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("Auth Token");
+    navigate("/signin");
+  };
 
 
 
@@ -62,7 +99,7 @@ function App() {
     }
   
     if (id === 2) {
-      createUserWithEmailAndPassword(authentication, user.email, user.password)
+      createUserWithEmailAndPassword(authentication, user.email, user.password,user.firstname,user.lastname,user.number,user.dob)
         .then((response) => {
           navigate('/home')
           sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
@@ -74,6 +111,7 @@ function App() {
         })
     }
   }
+  
 
 
   useEffect(() => {
@@ -95,20 +133,25 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Landing name="Raja"></Landing>}/>
-          <Route path="/exp" element={<Exp></Exp>}/>
+         
           <Route path="/signup" element={<SignUp user={user} handleChange={handleChange} handleAction={() => handleAction(2)}/>}/>
           <Route path="/signin" element={<SignIn  user={user} handleChange={handleChange} handleAction={() => handleAction(1)}/>}/>
-          <Route path="/home" element={<Home/>}/>
-          <Route path="/form" element={<FormSample/>}/>
-          <Route path="/todo" element={<ToDo/>}/>
+          <Route path="/home" element={<Home handleLogout={handleLogout}/>}/>
+    
+          <Route path="/todo" element={<ToDo handleLogout={handleLogout}/>}/>
           <Route path="/map" element={<Map/>}/>
-          <Route path="/images" element={<Carouse/>}/>
-          <Route path="/car" element={<PhotoCar/>}/>
-          <Route path="/user" element={<User user={user} handleChange={handleChange} />}/>
-          <Route path="/cardgen" element={<CardGen/>}/>
-          <Route path="/photos" element={<UploadPhotos/>}/>
-          <Route path="/loop" element={<Box/>}/>
+          <Route path="/images" element={<Carouse handleLogout={handleLogout}/>}/>
+      
+          <Route path="/user" element={<User user={user} changeMail={changeMail} changePass={changePass} handleMail={handleMail} handlePass={handlePass} handleChange={handleChange} deleteMe={deleteMe}handleLogout={handleLogout}  />}/>
+         
+       
+          
           <Route path="/weather" element={<NewWeather/>}/>
+          <Route path="/navbar" element={<NavBar />}/>
+          <Route path="/todoform" element={<Header/>}/>
+          <Route path="/fav" element={<Fav/>}/>
+         
+         
          
 
          

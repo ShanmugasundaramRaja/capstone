@@ -5,7 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function ProfileCard() {
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState(null);
+  const [link, setLink] = useState(null);
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
@@ -19,7 +19,7 @@ function ProfileCard() {
       .then(() => {
         getDownloadURL(imageRef)
           .then((url) => {
-            setUrl(url);
+            setLink(url);
           })
           .catch((error) => {
             console.log(error.message, "error getting the image url");
@@ -33,8 +33,8 @@ function ProfileCard() {
 
   return (
     <div className="App d-flex flex-column justify-content-center align-items-center p-4" >
-      <Avatar src={url} sx={{ width: 150, height: 150 }} />
-      <label for="upload-photo">Add profile image</label>
+      <Avatar src={link} sx={{ width: 150, height: 150 }} />
+      <label for="upload-photo">+ Profile photo</label>
       <input type="file" id="upload-photo" onChange={handleImageChange} />
       <button className="btn btn-block" style={{borderRadius:"24px",width:'20%',backgroundColor:'aliceblue'}} onClick={handleSubmit}>Submit</button>
     </div>

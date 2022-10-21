@@ -1,22 +1,37 @@
-import {React} from "react"
-import {Col,Row,Form,Container,InputGroup,Modal,Button} from "react-bootstrap"
-import { useState} from "react";
+import { React } from "react";
+import {
+  Col,
+  Row,
+  Form,
+  Container,
+  InputGroup,
+  Modal,
+  Button,
+} from "react-bootstrap";
+import { useState } from "react";
+import { IoArrowForwardCircle } from "react-icons/io5";
+import { AiFillDelete } from "react-icons/ai";
 
 import ProfileCard from "./ProfileCard";
 
 import NavBar from "./NavBar";
-import Footer from "./Footer"
+import Footer from "./Footer";
 
-
-export default function User({user}){
-
-
-
-    const [show, setShow] = useState(false);
-    /*const [images,setImages]=useState([]);*/
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    /*
+export default function User({
+  user,
+  handleChange,
+  handleLogout,
+  handleMail,
+  handlePass,
+  changeMail,
+  changePass,
+  deleteMe,
+}) {
+  const [show, setShow] = useState(false);
+  /*const [images,setImages]=useState([]);*/
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  /*
     const [imageURLs,setImageURLs]=useState([]);
 
  
@@ -47,119 +62,106 @@ images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
 
   */
 
-    return(
-<Container fluid className="back" style={{padding:'0'}} >
-    <Row>
+  return (
+    <Container fluid className="back" style={{ padding: "0" }}>
+      <Row>
         <Col xs={12}>
-            <NavBar/>
+          <NavBar handleLogout={handleLogout} />
         </Col>
-    </Row>
-    <Row>
-      <Col xs={12}>
-        <ProfileCard/>
-      </Col>
-    </Row>
-       <Row>
-
-        
-
-        <Col md={10} >
-
-       
-
-                    
-                  
-            
-            
-        <Form className="back2" style={{margin:'10%',padding:'20px',border:'4px solid white',borderRadius:'24px',width:'100%'}} >
-        
-         
-          <Row>
-            <Col md={6} className=" mb-4">
-           
-          
-                            <input type="text" id="fname" className="inputs" name="firstname" value={user.firstname}   placeholder="firstname" onClick={handleShow}  ></input>
-     
-            </Col>
-            <Col md={6} className=" mb-4">
-            <input type="text" id="fname" className="inputs" name="lasttname" value={user.lastname}   placeholder="lasttname" onClick={handleShow}  ></input>
-     
-            </Col>
-          </Row>
-          <Row className="mt-3">
-          
-            <input type="date" id="fname" className="inputs" name="dob" value={user.dob}   placeholder="dob" onClick={handleShow}   ></input>
-           
-         
-         <input type="text" id="fname" className="inputs mt-3" name="email" value={user.email}   placeholder="email" onClick={handleShow}  ></input>
-         
-          
-          </Row>
-
-          
-
-      
-     <Row className="mt-3">
-   
-      <input type="password" id="fname" className="inputs" name="password" value={user.password}   placeholder="password" onClick={handleShow}  ></input>
-     
-      <input type="text" id="fname" className="inputs mt-3" name="number" value={user.number}   placeholder="number" onClick={handleShow}  ></input>
-
-  
-
       </Row>
-
-     
-     
-      
-     
-       
-        </Form>
-        </Col>
-        </Row>
-        <Row>
+      <Row>
         <Col xs={12}>
-            <Footer/>
+          <ProfileCard />
         </Col>
-    </Row>
-    <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit form</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Old Value</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Old value"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>New Value</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="New Value"
-                autoFocus
-              />
-            </Form.Group>
-            
-            
+      </Row>
+      <Row>
+        <Col md={10}>
+          <Form
+            className="back2"
+            style={{
+              margin: "10%",
+              padding: "20px",
+              border: "4px solid white",
+              borderRadius: "24px",
+              width: "100%",
+            }}
+          >
+            <Row>
+              <Col md={6} className=" mb-4">
+                <input
+                  type="text"
+                  id="fname"
+                  className="inputs"
+                  name="firstname"
+                  value={user.firstname}
+                  placeholder="firstname"
+                  onChange={handleChange}
+                ></input>
+              </Col>
+              <Col md={6} className=" mb-4">
+                <input
+                  type="text"
+                  id="fname"
+                  className="inputs"
+                  name="lastname"
+                  value={user.lastname}
+                  onChange={handleChange}
+                  placeholder="lastname"
+                ></input>
+              </Col>
+            </Row>
+            <Row className="mt-3">
+              <input
+                type="date"
+                id="fname"
+                className="inputs"
+                name="dob"
+                value={user.dob}
+                placeholder="dob"
+                onChange={handleChange}
+              ></input>
+
+              <input
+                type="text"
+                id="fname"
+                className="inputs mt-3 mb-2"
+                name="email"
+                placeholder=" Change email"
+                onChange={handleMail}
+              ></input>
+              <IoArrowForwardCircle onClick={changeMail} />
+            </Row>
+
+            <Row className="mt-3">
+              <input
+                type="password"
+                id="fname"
+                className="inputs mb-2"
+                name="password"
+                placeholder=" Change password"
+                onChange={handlePass}
+              ></input>
+              <IoArrowForwardCircle onClick={changePass} />
+
+              <input
+                type="text"
+                id="fname"
+                className="inputs mt-3 mb-2"
+                name="number"
+                value={user.number}
+                placeholder="number"
+                onChange={handleChange}
+              ></input>
+              <AiFillDelete onClick={deleteMe} />
+            </Row>
           </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="success" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-        
-        </Container> 
-        
-    
-    )
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={12}>
+          <Footer />
+        </Col>
+      </Row>
+    </Container>
+  );
 }

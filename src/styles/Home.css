@@ -45,3 +45,20 @@
   background-color: aliceblue;
  }
 
+ .inputs2{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  height:40px;
+  background-color: aliceblue;
+ }
+
+ .inputs3{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width:400px;
+  height:40px;
+  background-color: aliceblue;
+ }
+
