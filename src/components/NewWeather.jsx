@@ -1,6 +1,7 @@
 /** @format */
 import { Container, Row, Col } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect, React } from "react";
+import { BsArrowReturnRight } from "react-icons/bs";
 
 const NewWeather = () => {
   const [query, setQuery] = useState("");
@@ -24,57 +25,54 @@ const NewWeather = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    setResults(JSON.parse(sessionStorage.getItem("weather")));
+  }, []);
+  useEffect(() => {
+    sessionStorage.setItem("weather", JSON.stringify(results));
+  }, [results]);
   return (
     <>
-    <div className="d-flex flex-column justify-content-end ">
-
-   
-      <div>
-      <input
+      <div className="d-flex flex-column justify-content-end ">
+        <div>
+          <input
             type="text"
-            placeholder="Type City Name Here"
+            placeholder="Pick a City"
+            className="form__field"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <input
+          <button
+            className="btn del delup delaccept  btn-lg ml-3 mt-2 "
+            style={{
+              border: "solid 2px white",
+            }}
             type="button"
-            id="searchBtn"
-            value=" Search"
-            className="mt-3"
             onClick={searchQuery}
-          />
-      </div>
+          >
+            Search
+          </button>
+        </div>
 
-      <div className="text-dark">
-        {results.main && (
-          <div className="cityinfo">
-            <div className="weather-section">
-              <Container>
-                <Row className="justify-content-center">
-                  <h1 className="mb-3">{results.name}</h1>
-                  <Col className="d-flex justify-content-center">
-                    
-                      <h1 className="subtitle">
-                       
-                        
-                        {(Math.round(results.main.temp - 273.15)).toFixed(1)} ºC
-                     
+        <div className="text-dark">
+          {results.main && (
+            <div className="cityinfo">
+              <div className="weather-section">
+                <Container>
+                  <Row className="justify-content-center">
+                    <h1 className="mb-3 res">{results.name}</h1>
+                    <Col className="d-flex justify-content-center">
+                      <h1 className="res">
+                        {Math.round(results.main.temp - 273.15).toFixed(1)} ºC
                       </h1>
-                  
-
-                      
-                  
-                   
-            
-                  </Col>
-                </Row>
-              </Container>
-             
+                    </Col>
+                  </Row>
+                </Container>
+              </div>
             </div>
-          </div>
-        )}
-        
-      </div>
+          )}
+        </div>
       </div>
     </>
   );

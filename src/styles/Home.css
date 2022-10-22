@@ -62,3 +62,80 @@
   background-color: aliceblue;
  }
 
+ .del{
+  background: rgb(117,168,240);
+  background: linear-gradient(90deg, rgba(117,168,240,1) 30%, rgba(204,209,233,1) 49%, rgba(255,247,247,1) 66%);
+  transition: all .2s ease-in-out;
+ }
+ .delaccept:hover{
+  transform: scale(1.1);
+ }
+ .delsub{
+  transition: all .2s ease-in-out;
+ }
+ .ics:hover{
+  color:blue
+ }
+
+ .delsub:hover{
+  transform:rotate(360deg) scale(1.5);
+ }
+.dell:hover{color:red}
+ .delmark{
+  transition: all .2s ease-in-out;
+ }
+ .delmark:hover{
+  transform: translate(0px,-20px);
+ }
+ .delonly:hover{
+ 
+background: linear-gradient(90deg, rgba(36,0,4,1) 0%, rgba(121,9,9,1) 0%, rgba(231,98,105,1) 48%, rgba(255,255,255,1) 100%);
+ }
+
+ .delsa:hover{
+  background: rgb(31,154,36);
+  background: linear-gradient(90deg, rgba(31,154,36,1) 0%, rgba(130,194,51,1) 32%, rgba(244,244,244,1) 70%); 
+ }
+ .delonly2{
+  background: rgb(253,176,105);
+  background: linear-gradient(90deg, rgba(253,176,105,1) 0%, rgba(242,255,128,1) 23%, rgba(244,244,244,1) 50%, rgba(242,255,128,1) 75%, rgba(253,176,105,1) 100%); 
+ }.delgreen:hover{
+  background: rgb(36,0,4);
+background: linear-gradient(90deg, rgba(36,0,4,1) 0%, rgba(254,255,255,1) 0%, rgba(88,117,191,1) 39%, rgba(24,237,104,1) 100%);  
+ }
+
+ .delup:hover{
+  background: rgb(253,176,105);
+  background: linear-gradient(90deg, rgba(253,176,105,1) 0%, rgba(242,255,128,1) 23%, rgba(244,244,244,1) 50%, rgba(242,255,128,1) 75%, rgba(253,176,105,1) 100%); 
+ }
+ .form__field {
+  font-family: inherit;
+  width: 90%;
+  border: 0;
+  border-bottom: 4px solid white;
+  outline: 0;
+  font-size: 1.6rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+ 
+}
+
+.form__field::placeholder{
+  color:white
+}
+
+
+.res{
+  font-size: 4rem;
+  color:white
+}
+.like{
+  fill: red;
+}
+.blue{
+  background:url("https://i.gifer.com/fyEm.gif")
+}
+

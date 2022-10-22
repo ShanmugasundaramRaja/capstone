@@ -1,19 +1,26 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "../styles/Home.css";
 import { BsFillBellFill } from "react-icons/bs";
 import { FaGlobeAmericas, FaRegEnvelope, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
 
 export default function NavBar({ handleLogout }) {
+  const [url, setUrl] = useState();
+
+  useEffect(() => {
+    setUrl(JSON.parse(sessionStorage.getItem("prof")));
+  }, []);
+
   return (
     <Nav className="navbar navbar-expand-lg back2" style={{ color: "black" }}>
       <Container fluid>
-        <a className="navbar-brand" href="#">
-          Globetrotter
-        </a>
+        <div className="d-flex">
+          <a className="navbar-brand" href="#">
+            Globetrotter
+          </a>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
             <li className="nav-item text-center mx-2 mx-lg-1">
               <a className="nav-link active" aria-current="page" href="#!">
@@ -40,14 +47,9 @@ export default function NavBar({ handleLogout }) {
               </a>
             </li>
           </ul>
-
-          <img
-            src="https://staudt-gmbh.com/wp-content/uploads/2018/07/person-dummy.jpg"
-            className="rounded-circle"
-            style={{ height: "42px", marginLeft: "80%" }}
-            alt=""
-            loading="lazy"
-          />
+        </div>
+        <div className="d-flex">
+          <Avatar src={url} sx={{ width: 50, height: 50 }} />
           <Navbar.Collapse id="navbar-dark-example">
             <Nav>
               <NavDropdown>
@@ -56,23 +58,28 @@ export default function NavBar({ handleLogout }) {
                     User info
                   </NavDropdown.Item>
                 </Link>
+                <Link to="/favo">
+                  <NavDropdown.Item className="back2" href="#action/3.2">
+                    Favourites
+                  </NavDropdown.Item>
+                </Link>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
-        </div>
 
-        <button
-          onClick={handleLogout}
-          classNameName="btn ml-2 p-3"
-          type="button"
-          style={{
-            border: "1px solid white",
-            borderRadius: "24px",
-            background: "transparent",
-          }}
-        >
-          Sign out
-        </button>
+          <button
+            onClick={handleLogout}
+            classNameName="btn del delonly ml-2 p-3"
+            type="button"
+            style={{
+              border: "1px solid white",
+              borderRadius: "24px",
+              background: "transparent",
+            }}
+          >
+            Sign out
+          </button>
+        </div>
       </Container>
     </Nav>
   );

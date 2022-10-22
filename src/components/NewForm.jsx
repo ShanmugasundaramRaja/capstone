@@ -46,9 +46,15 @@ export default function NewForm({
         value={input}
         onChange={onInputChange}
         placeholder="Enter your plans"
+        style={{ width: "80%" }}
       />
       <span className="inputs2 ml-3">
-        <MdAdd onClick={onFormSubmit} />
+        <MdAdd
+          size="3rem"
+          className="ics delaccept del delup "
+          style={{ border: "3px solid white", borderRadius: "5px" }}
+          onClick={onFormSubmit}
+        />
       </span>
     </form>
   );

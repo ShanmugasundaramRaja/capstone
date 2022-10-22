@@ -1,5 +1,6 @@
 import React from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
+import { AiFillDelete } from "react-icons/ai";
 
 export default function TodoList({ todo, setTodo, setEditTodo }) {
   const handleDelete = ({ id }) => {
@@ -21,12 +22,27 @@ export default function TodoList({ todo, setTodo, setEditTodo }) {
             className="inputs2 mt-2 mb-2"
             value={elem.title}
             onChange={(event) => event.preventDefault()}
+            style={{ width: "70%" }}
           />
-          <span className="inputs2 ml-2">
-            <MdEdit onClick={() => handleEdit(elem)} />
+          <span
+            className=" del delaccept delup  ml-2 p-2"
+            style={{ border: "3px solid white", borderRadius: "10px" }}
+          >
+            <MdEdit
+              className="delaccept ics"
+              size="1.5rem"
+              onClick={() => handleEdit(elem)}
+            />
           </span>
-          <span className="inputs2 ml-2">
-            <MdDelete onClick={() => handleDelete(elem)} />
+          <span
+            className="del delup p-2 ml-2"
+            style={{ border: "3px solid white", borderRadius: "10px" }}
+          >
+            <AiFillDelete
+              className="delaccept dell"
+              size="1.5rem"
+              onClick={() => handleDelete(elem)}
+            />
           </span>
         </li>
       ))}

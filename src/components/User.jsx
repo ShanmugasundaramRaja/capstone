@@ -1,13 +1,5 @@
 import { React } from "react";
-import {
-  Col,
-  Row,
-  Form,
-  Container,
-  InputGroup,
-  Modal,
-  Button,
-} from "react-bootstrap";
+import { Col, Row, Form, Container } from "react-bootstrap";
 import { useState } from "react";
 import { IoArrowForwardCircle } from "react-icons/io5";
 import { AiFillDelete } from "react-icons/ai";
@@ -27,41 +19,6 @@ export default function User({
   changePass,
   deleteMe,
 }) {
-  const [show, setShow] = useState(false);
-  /*const [images,setImages]=useState([]);*/
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  /*
-    const [imageURLs,setImageURLs]=useState([]);
-
- 
-
-  useEffect(()=>{
-    if(images.length<1)return;
-const newImageUrls=[];
-images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
-  
-    
-  },[images]);
-
-  function onImageChange(e){
-    setImages([...e.target.files]);
-  }
-
-
-            <div style={{width:'200px',height:'200px',borderRadius:'50%', backgroundImage: `url(${imag})`,backgroundSize:'cover',backgroundRepeat:'none',marginLeft:'52%'}}>
-                <input type="file"
-       
-       multiple accept="image/*" onChange={onImageChange}/>
-       {imageURLs.map(imageSrc=><img src={imageSrc}/>)} 
-
-       </div>
-
-
-
-
-  */
-
   return (
     <Container fluid className="back" style={{ padding: "0" }}>
       <Row>
@@ -94,7 +51,7 @@ images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
                   className="inputs"
                   name="firstname"
                   value={user.firstname}
-                  placeholder="firstname"
+                  placeholder="Shanmugasundaram"
                   onChange={handleChange}
                 ></input>
               </Col>
@@ -106,18 +63,18 @@ images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
                   name="lastname"
                   value={user.lastname}
                   onChange={handleChange}
-                  placeholder="lastname"
+                  placeholder="Raja"
                 ></input>
               </Col>
             </Row>
             <Row className="mt-3">
               <input
-                type="date"
+                type="text"
                 id="fname"
                 className="inputs"
                 name="dob"
                 value={user.dob}
-                placeholder="dob"
+                placeholder="18.08.1994"
                 onChange={handleChange}
               ></input>
 
@@ -126,10 +83,14 @@ images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
                 id="fname"
                 className="inputs mt-3 mb-2"
                 name="email"
-                placeholder=" Change email"
+                placeholder=" shanmusinbox@gmail.com"
                 onChange={handleMail}
               ></input>
-              <IoArrowForwardCircle onClick={changeMail} />
+              <IoArrowForwardCircle
+                className="delaccept ics"
+                onClick={changeMail}
+                size="2rem"
+              />
             </Row>
 
             <Row className="mt-3">
@@ -138,10 +99,14 @@ images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
                 id="fname"
                 className="inputs mb-2"
                 name="password"
-                placeholder=" Change password"
+                placeholder=" ........"
                 onChange={handlePass}
               ></input>
-              <IoArrowForwardCircle onClick={changePass} />
+              <IoArrowForwardCircle
+                className="delaccept ics"
+                onClick={changePass}
+                size="2rem"
+              />
 
               <input
                 type="text"
@@ -149,10 +114,14 @@ images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
                 className="inputs mt-3 mb-2"
                 name="number"
                 value={user.number}
-                placeholder="number"
+                placeholder="+4917636852525"
                 onChange={handleChange}
               ></input>
-              <AiFillDelete onClick={deleteMe} />
+              <AiFillDelete
+                className="delaccept dell"
+                onClick={deleteMe}
+                size="2rem"
+              />
             </Row>
           </Form>
         </Col>

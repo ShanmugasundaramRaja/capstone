@@ -15,17 +15,6 @@ export default function Home() {
   };
 
   let navigate = useNavigate();
-  useEffect(() => {
-    let authToken = sessionStorage.getItem("Auth Token");
-
-    if (authToken) {
-      navigate("/home");
-    }
-
-    if (!authToken) {
-      navigate("/");
-    }
-  }, []);
 
   const [cit, setCit] = useState();
 
@@ -54,6 +43,21 @@ export default function Home() {
     }
     console.log(num[0]);
     console.log(more);
+    sessionStorage.setItem("city", JSON.stringify(cit));
+  };
+
+  useEffect(() => {
+    setMore(JSON.parse(sessionStorage.getItem("more")));
+  }, []);
+  useEffect(() => {
+    sessionStorage.setItem("more", JSON.stringify(more));
+    setCit(JSON.parse(sessionStorage.getItem("city")));
+  }, [more]);
+  const clear = () => {
+    setCit("");
+    setMore([]);
+    sessionStorage.removeItem("more");
+    sessionStorage.removeItem("city");
   };
   return (
     <Container fluid style={{ padding: 0, width: "100vw" }}>
@@ -118,16 +122,28 @@ export default function Home() {
               </Form>
               <div className="pt-1 mb-2">
                 <button
-                  className="btn  btn-lg btn-block"
+                  className="btn  del delsa btn-lg btn-block"
                   style={{
                     border: "solid 2px white",
                     borderRadius: "24px",
-                    background: "#A4D4FB",
                   }}
                   type="button"
                   onClick={handleSubmit}
                 >
                   Submit
+                </button>
+              </div>
+              <div className="pt-1 mb-2">
+                <button
+                  className="btn del  btn-lg btn-block delonly"
+                  style={{
+                    border: "solid 2px white",
+                    borderRadius: "24px",
+                  }}
+                  type="button"
+                  onClick={clear}
+                >
+                  Clear
                 </button>
               </div>
             </div>

@@ -25,6 +25,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,upd
 import NavBar from './components/NavBar';
 import Header from './components/Header';
 import Fav from './components/Fav';
+import Favourite from './components/Favourite';
    
 
 
@@ -114,13 +115,6 @@ newmail=e.target.value
   
 
 
-  useEffect(() => {
-    let authToken = sessionStorage.getItem('Auth Token')
-
-    if (authToken) {
-      navigate('/home')
-    }
-  }, [])
 
 
 
@@ -150,6 +144,7 @@ newmail=e.target.value
           <Route path="/navbar" element={<NavBar />}/>
           <Route path="/todoform" element={<Header/>}/>
           <Route path="/fav" element={<Fav/>}/>
+          <Route path="/favo" element={<Favourite/>}/>
          
          
          

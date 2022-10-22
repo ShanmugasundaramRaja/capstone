@@ -1,8 +1,10 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import CardP from "./CardP";
 import NavBar from "./NavBar";
-import { AiFillDelete } from "react-icons/ai";
+import red from "../red";
+import { FiHeart } from "react-icons/fi";
+import { MdAdd } from "react-icons/md";
 
 import { storage } from "./firebase";
 import {
@@ -16,6 +18,7 @@ export default function Carouse({ handleLogout }) {
   const [file, setFile] = useState([]);
 
   const [link, setLink] = useState([]);
+  const [fav, setFav] = useState([]);
 
   let storageRef;
   let uploadTask;
@@ -49,6 +52,18 @@ export default function Carouse({ handleLogout }) {
     console.log("Deleted");
   };
 
+  const select = (url) => {
+    setFav([...fav, url]);
+    console.log(fav);
+    sessionStorage.setItem("fav", JSON.stringify(fav));
+  };
+  useEffect(() => {
+    setLink(JSON.parse(sessionStorage.getItem("url")));
+  }, []);
+  useEffect(() => {
+    sessionStorage.setItem("url", JSON.stringify(link));
+  }, [link]);
+
   return (
     <Container
       fluid
@@ -63,18 +78,23 @@ export default function Carouse({ handleLogout }) {
             style={{ width: "100%", height: "200px", padding: "5%" }}
           >
             <div className="App d-flex flex-column justify-content-center align-items-center p-4">
-              <label for="upload-photo">+Upload images</label>
+              <label for="upload-photo">
+                <MdAdd
+                  size="2rem"
+                  className="ics delaccept del delup "
+                  style={{ border: "3px solid white", borderRadius: "5px" }}
+                />
+              </label>
               <input type="file" id="upload-photo" onChange={handleChange} />
               <button
-                className="btn "
+                className="btn  del delaccept delup"
                 style={{
                   borderRadius: "24px",
                   width: "20%",
-                  backgroundColor: "aliceblue",
                 }}
                 onClick={handleUpload}
               >
-                Submit
+                Upload images
               </button>
             </div>
           </Container>
@@ -84,17 +104,33 @@ export default function Carouse({ handleLogout }) {
         {link.map((elem) => {
           return (
             <>
-              <Col xs={4} className="mt-4 ">
+              <Col xs={4} className="mt-4 d-flex flex-column ">
                 <CardP src={elem} />
                 <button
+                  className="btn del delonly2  btn-lg ml-3 "
                   style={{
-                    borderRadius: "24px",
-                    width: "50px",
-                    border: "2px solid white",
-                    marginTop: "5px",
+                    border: "solid 2px white",
+
+                    maxWidth: "350px",
                   }}
+                  onClick={() => select(elem)}
                 >
-                  <AiFillDelete onClick={() => deleteFromFirebase(elem)} />
+                  <FiHeart
+                    size="2rem"
+                    className="ml-2 red like "
+                    onClick={red}
+                  />
+                </button>
+                <button
+                  className="btn del delonly  btn-lg ml-3 "
+                  style={{
+                    border: "solid 2px white",
+
+                    maxWidth: "350px",
+                  }}
+                  onClick={() => deleteFromFirebase(elem)}
+                >
+                  Delete
                 </button>
               </Col>
             </>

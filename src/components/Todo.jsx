@@ -21,6 +21,8 @@ import ModalS from "./ModalS";
 import { Link } from "react-router-dom";
 import Map from "./Map";
 
+import Header from "./Header";
+
 export default function ToDo({ handleLogout }) {
   const [lgShow, setLgShow] = useState(false);
   const [show, setShow] = useState(false);
@@ -38,106 +40,25 @@ export default function ToDo({ handleLogout }) {
           <LeftToDo />
         </Col>
         <Col xs={9}>
-          <Card style={{ width: "100%" }} className="back2">
+          <Card style={{ width: "100%" }} className="back2 mt-3 ">
             <Card.Img
               variant="top"
-              src="https://wallpaper.dog/large/17055502.jpg"
+              src="https://i.gifer.com/921j.gif"
               style={{
                 width: "100%",
-                height: "200px",
+                height: "350px",
                 margin: "0 auto",
                 objectFit: "cover",
               }}
             />
-            <Card.Body>
-              <Card.Title>Holiday planner</Card.Title>
-              <div>
-                <InputGroup className="mb-3 back">
-                  <Form.Control
-                    style={{ marginRight: "5px", border: "2px solid black" }}
-                    placeholder="New plan"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                  />
-                  <button onClick={() => setLgShow(true)}>
-                    <MdAdd />
-                  </button>
-                </InputGroup>
-              </div>
-              <Modal
-                size="lg"
-                show={lgShow}
-                onHide={() => setLgShow(false)}
-                aria-labelledby="example-modal-sizes-title-lg"
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title id="example-modal-sizes-title-lg">
-                    Add plans
-                  </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <ModalS />
-                </Modal.Body>
-                <Button variant="success">Submit</Button>
-              </Modal>
-              <Modal
-                size="lg"
-                show={show}
-                onHide={() => setShow(false)}
-                aria-labelledby="example-modal-sizes-title-lg"
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title id="example-modal-sizes-title-lg"></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <Alert variant="danger">
-                    <Alert.Heading>Warning!</Alert.Heading>
-                    <p>Are you sure you want to delete me?</p>
-                    <hr />
-                  </Alert>
-                </Modal.Body>
-                <Button variant="danger" onClick={() => setShow(false)}>
-                  Delete
-                </Button>
-              </Modal>
-              <Modal
-                size="lg"
-                show={showS}
-                onHide={() => setShowS(false)}
-                aria-labelledby="example-modal-sizes-title-lg"
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title id="example-modal-sizes-title-lg"></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <Alert variant="warning">
-                    <Alert.Heading>Alert!</Alert.Heading>
-                    <p>Successfully saved!</p>
-                    <hr />
-                  </Alert>
-                </Modal.Body>
-                <Button variant="warning" onClick={() => setShowS(false)}>
-                  Save
-                </Button>
-              </Modal>
-              <Card.Text>
-                <List name="Eiffel Tower" />
-                <List name="Louvre Museum" />
-                <List name="Centre de Pompidou" />
-              </Card.Text>
-              <Button onClick={() => setShowS(true)} className="butcir">
-                Save changes
-              </Button>
-              <Button
-                variant="danger"
-                onClick={() => setShow(true)}
-                className="butcir"
-              >
-                Discard
-              </Button>
+            <Card.Body style={{ padding: "0" }}>
+              <button className="del btn delonly2" style={{ width: "100%" }}>
+                Holiday planner
+              </button>
+
+              <Header />
             </Card.Body>
           </Card>
-          <Map />
         </Col>
       </Row>
 
