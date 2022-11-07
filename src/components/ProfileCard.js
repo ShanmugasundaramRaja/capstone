@@ -21,6 +21,7 @@ function ProfileCard() {
         getDownloadURL(imageRef)
           .then((url) => {
             setLink(url);
+            window.location.reload();
           })
           .catch((error) => {
             console.log(error.message, "error getting the image url");
@@ -30,6 +31,7 @@ function ProfileCard() {
       .catch((error) => {
         console.log(error.message);
       });
+      
   };
   useEffect(() => {
     setLink(JSON.parse(sessionStorage.getItem("prof")));
@@ -41,7 +43,7 @@ function ProfileCard() {
   return (
     <div className="App d-flex flex-column justify-content-center align-items-center p-4" >
       <Avatar src={link} sx={{ width: 150, height: 150 }} />
-      <label for="upload-photo" className="delaccept delup del  mt-2 " style={{ border: "3px solid white", borderRadius: "5px" }}>
+      <label for="upload-photo" className="delaccept delup del  mt-2 " style={{ border: "3px solid white", borderRadius: "24px" }}>
                 <MdAdd
                   size="2rem"
                   className="ics "
@@ -49,7 +51,7 @@ function ProfileCard() {
                 />Add photo
               </label>
       <input type="file" id="upload-photo" onChange={handleImageChange} />
-      <button className="btn del delup delaccept" style={{borderRadius:"24px",width:'20%',backgroundColor:'aliceblue'}} onClick={handleSubmit}>Submit photo</button>
+      <button className="btn del delup delaccept" style={{borderRadius:"24px",width:'20%',border: "3px solid white"}} onClick={handleSubmit}>Submit photo</button>
     </div>
   );
 }

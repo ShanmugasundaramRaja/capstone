@@ -15,18 +15,22 @@ import Carouse from './components/Carouse';
 
 import User from './components/User';
 
-import {app} from './firebase'
-import { useState,useEffect } from 'react';
+
+import { useState} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import NewWeather from './components/NewWeather';
+
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,updatePassword,updateEmail,deleteUser } from 'firebase/auth'
 
 import NavBar from './components/NavBar';
 import Header from './components/Header';
-import Fav from './components/Fav';
-import Favourite from './components/Favourite';
-   
+
+
+import Trial from './components/Trial'
+
+
+
+
 
 
 
@@ -140,12 +144,16 @@ newmail=e.target.value
          
        
           
-          <Route path="/weather" element={<NewWeather/>}/>
+    
           <Route path="/navbar" element={<NavBar />}/>
           <Route path="/todoform" element={<Header/>}/>
-          <Route path="/fav" element={<Fav/>}/>
-          <Route path="/favo" element={<Favourite/>}/>
-         
+        
+          
+          <Route path="/dum" element={<Trial/>}/>
+        
+        
+     
+
          
          
 

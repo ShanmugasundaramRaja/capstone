@@ -20,12 +20,16 @@ export default function User({
   deleteMe,
 }) {
   return (
-    <Container fluid className="back" style={{ padding: "0" }}>
-      <Row>
-        <Col xs={12}>
-          <NavBar handleLogout={handleLogout} />
-        </Col>
-      </Row>
+    <Container
+      fluid
+      className="back"
+      style={{
+        width: "100vw",
+        minHeight: "100vh",
+      }}
+    >
+      <NavBar handleLogout={handleLogout} />
+
       <Row>
         <Col xs={12}>
           <ProfileCard />

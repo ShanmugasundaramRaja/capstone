@@ -1,46 +1,42 @@
-import { React } from "react";
+import { React, useState } from "react";
 import "../styles/todo.css";
 import {
   Container,
   Row,
   Col,
   Card,
-  Button,
-  InputGroup,
-  Form,
-  Modal,
-  Alert,
+  Collapse,
+  Badge,
+  ListGroup,
 } from "react-bootstrap";
-import List from "./List";
-import { MdAdd } from "react-icons/md";
+
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import LeftToDo from "./LeftToDo";
-import { useState } from "react";
-import ModalS from "./ModalS";
-import { Link } from "react-router-dom";
-import Map from "./Map";
+import Collaps from "./Collaps";
 
 import Header from "./Header";
+import Map from "./Map";
 
 export default function ToDo({ handleLogout }) {
-  const [lgShow, setLgShow] = useState(false);
-  const [show, setShow] = useState(false);
-  const [showS, setShowS] = useState(false);
-
+  const [open, setOpen] = useState(false);
   return (
-    <Container fluid className="back" style={{ padding: "0" }}>
+    <Container
+      fluid
+      className="back"
+      style={{ padding: "0", minHeight: "100vh" }}
+    >
+      <NavBar handleLogout={handleLogout} />
+
       <Row>
-        <Col xs={12}>
-          <NavBar handleLogout={handleLogout} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={3} style={{ height: "100%" }}>
+        <Col xs={0} md={3} style={{ height: "100%" }}>
           <LeftToDo />
         </Col>
-        <Col xs={9}>
+        <Col xs={12} md={9}>
           <Card style={{ width: "100%" }} className="back2 mt-3 ">
+            <button className="del btn delonly2" style={{ width: "100%" }}>
+              Holiday planner
+            </button>
             <Card.Img
               variant="top"
               src="https://i.gifer.com/921j.gif"
@@ -52,13 +48,27 @@ export default function ToDo({ handleLogout }) {
               }}
             />
             <Card.Body style={{ padding: "0" }}>
-              <button className="del btn delonly2" style={{ width: "100%" }}>
-                Holiday planner
+              <button
+                className="del btn delonly2"
+                style={{ width: "100%" }}
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+              >
+                MOST POPULAR
               </button>
+
+              <Collapse in={open}>
+                <div id="example-collapse-text">
+                  <Collaps />
+                </div>
+              </Collapse>
 
               <Header />
             </Card.Body>
           </Card>
+
+          <Map />
         </Col>
       </Row>
 

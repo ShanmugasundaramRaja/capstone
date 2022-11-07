@@ -1,58 +1,58 @@
-import React from "react"
-import { Container } from "react-bootstrap"
-import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import '../styles/Home.css';
+import React from "react";
+import { Container } from "react-bootstrap";
+import {
+  FaFacebook,
+  FaGithub,
+  FaGoogle,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa";
+import "../styles/Home.css";
 
-export default function Footer(){
+export default function Footer() {
+  return (
+    <Container fluid style={{ width: "100vw" }} className="back2">
+      <footer class="text-center text-white">
+        <Container fluid>
+          <section class="mb-4 pt-3">
+            <a class="btn  btn-floating m-1" href="#!" role="button">
+              <FaFacebook />
+            </a>
 
-    return(
-<Container fluid style={{padding:0}} className="back2">
+            <a class="btn  btn-floating m-1" href="#!" role="button">
+              <FaTwitter></FaTwitter>
+            </a>
 
-<footer class="text-center text-white">
+            <a class="btn  btn-floating m-1" href="#!" role="button">
+              <FaGoogle></FaGoogle>
+            </a>
 
-<Container fluid>
-  <section class="mb-4 pt-3">
- 
-    <a class="btn  btn-floating m-1" href="#!" role="button"
-      ><FaFacebook />
-    </a>
+            <a class="btn  btn-floating m-1" href="#!" role="button">
+              <FaInstagram></FaInstagram>
+            </a>
 
+            <a class="btn  btn-floating m-1" href="#!" role="button">
+              <FaLinkedin></FaLinkedin>
+            </a>
 
-    <a class="btn  btn-floating m-1" href="#!" role="button">
-     <FaTwitter></FaTwitter></a>
+            <a class="btn  btn-floating m-1" href="#!" role="button">
+              <FaGithub></FaGithub>
+            </a>
+          </section>
+        </Container>
 
-   
-    <a class="btn  btn-floating m-1" href="#!" role="button"
-      ><FaGoogle></FaGoogle>
-    </a>
-
-    
-    <a class="btn  btn-floating m-1" href="#!" role="button"
-      ><FaInstagram></FaInstagram>
-    </a>
-
- 
-    <a class="btn  btn-floating m-1" href="#!" role="button"
-      ><FaLinkedin></FaLinkedin>
-    </a>
-
-
-    <a class="btn  btn-floating m-1" href="#!" role="button"
-      ><FaGithub></FaGithub>
-    </a>
-  </section>
-
-  </Container>
-
-
-
-<div class="text-center p-3" style={{backgroundColor: "white",color:"black",opacity:'0.5'}}>
-  © 2022 Copyright :
-  <a style={{color:"black"}}href="https://google.com/">  Globetrotter.com</a>
-</div>
-
-</footer>
-
-</Container>
-    )
+        <div
+          class="text-center p-3"
+          style={{ backgroundColor: "white", color: "black", opacity: "0.5" }}
+        >
+          © 2022 Copyright :
+          <a style={{ color: "black" }} href="https://google.com/">
+            {" "}
+            Globetrotter.com
+          </a>
+        </div>
+      </footer>
+    </Container>
+  );
 }

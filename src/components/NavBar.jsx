@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "../styles/Home.css";
 import { BsFillBellFill } from "react-icons/bs";
-import { FaGlobeAmericas, FaRegEnvelope, FaHome } from "react-icons/fa";
+import { FaGlobeAmericas, FaRegEnvelope, FaHome, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 
@@ -14,7 +14,7 @@ export default function NavBar({ handleLogout }) {
   }, []);
 
   return (
-    <Nav className="navbar navbar-expand-lg back2" style={{ color: "black" }}>
+    <Nav className="navbar navbar-expand-lg back2" style={{ width: "100vw" }}>
       <Container fluid>
         <div className="d-flex">
           <a className="navbar-brand" href="#">
@@ -47,6 +47,18 @@ export default function NavBar({ handleLogout }) {
               </a>
             </li>
           </ul>
+          <ul className="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+            <li className="nav-item text-center mx-2 mx-lg-1">
+              <a className="nav-link" href="#!">
+                <div>
+                  <Link to="/todo">
+                    <FaEdit classNameName="mb-1"></FaEdit>{" "}
+                  </Link>
+                </div>
+                Planner
+              </a>
+            </li>
+          </ul>
         </div>
         <div className="d-flex">
           <Avatar src={url} sx={{ width: 50, height: 50 }} />
@@ -56,11 +68,6 @@ export default function NavBar({ handleLogout }) {
                 <Link to="/user">
                   <NavDropdown.Item className="back2" href="#action/3.2">
                     User info
-                  </NavDropdown.Item>
-                </Link>
-                <Link to="/favo">
-                  <NavDropdown.Item className="back2" href="#action/3.2">
-                    Favourites
                   </NavDropdown.Item>
                 </Link>
               </NavDropdown>

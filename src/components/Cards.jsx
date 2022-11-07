@@ -1,54 +1,37 @@
 import React from "react";
-import { Card,Button,Collapse} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { useState } from "react";
-import {GrAdd} from "react-icons/gr"
+import { GrAdd } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
+export default function Cards(props) {
+  const [arr, setArr] = useState([
+    { date: "7th Nov 22, Friday" },
+    { date: "8th Nov 22, Saturday" },
+    { date: "9th Nov 22, Sunday" },
+    { date: "10th Nov 22, Sunday" },
+    { date: "11th Nov 22, Sunday" },
+    { date: "12th Nov 22, Sunday" },
+  ]);
 
-export default function Cards(props){
-  const [open, setOpen] = useState(false);
-
-
-    return(
-      
-
-
-
-
-
-   
-    <Card style={{ width: '22rem',height:'500px'}}>
-      <Card.Img variant="top" style={{height:'70%',objectFit:"cover",outline:'none'}} src={props.img} />
-      <Card.Body className="back2">
-        <Card.Title>Day {props.day} <br />{props.place}</Card.Title>
-        <Card.Text>
-        <Button 
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-        style={{background:'lightblue',outline:'none'}}
-
-        
-      >
-        <GrAdd/>
-        </Button>
-      <Collapse in={open}>
-        <div id="example-collapse-text">
-         For further details click <Link to="/todo">here</Link>
-        </div>
-      </Collapse>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-
-
-
-
-
-
-
-
-
-    )
+  return (
+    <Link to="/todo" style={{ textDecoration: "none" }}>
+      <Card style={{ width: "22rem", height: "500px" }}>
+        <Card.Img
+          variant="top"
+          style={{ height: "70%", objectFit: "cover", outline: "none" }}
+          src={props.img}
+        />
+        <Card.Body className="back2">
+          <Card.Title>
+            Day {props.day}
+            <br />
+            {props.place}
+            <br />
+            {props.date}
+          </Card.Title>
+        </Card.Body>
+      </Card>
+    </Link>
+  );
 }
