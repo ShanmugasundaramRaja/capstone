@@ -144,11 +144,14 @@ background: linear-gradient(90deg, rgba(36,0,4,1) 0%, rgba(254,255,255,1) 0%, rg
   background-repeat: none;
   background-size: cover;
 }
+
 .blu{
-  background:url("https://i.gifer.com/Cbd.gif");
+  background:url("https://i.gifer.com/KNUi.gif");
+
+
   background-repeat: none;
   background-size: cover;
-  background-position: 50% 100%;
+  background-position: 50% ;
   ;
 }
 
@@ -169,4 +172,6 @@ background: linear-gradient(90deg, rgba(36,0,4,1) 0%, rgba(254,255,255,1) 0%, rg
 th{
   border-bottom: 2px solid white ;
 }
+
+
 

@@ -44,7 +44,6 @@ export default function TodoList({ todo, setTodo, setEditTodo }) {
                 <input
                   type="text"
                   placeholder="Day"
-                  value={day[0]}
                   onChange={(e) => {
                     setDay([...day, e.target.value]);
                   }}

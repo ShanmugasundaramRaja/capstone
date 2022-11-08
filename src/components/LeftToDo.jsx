@@ -64,7 +64,7 @@ export default function LeftToDo() {
           color: "whitesmoke",
           background:
             weather === "Clear"
-              ? `url(" https://i.gifer.com/DuXi.gif")`
+              ? `url(" https://i.gifer.com/1Ku2.gif")`
               : weather === "Clouds"
               ? `url("https://i.gifer.com/1Ku2.gif")`
               : `url("https://i.gifer.com/68J.gif")`,
@@ -132,27 +132,27 @@ export default function LeftToDo() {
               <th style={{ padding: "15px" }}>Value</th>
             </tr>
             <tr>
-              <td>Nov 7th</td>
+              <td>Nov 9th</td>
               <td> {Math.round(results.main.temp - 277.15).toFixed(0)} ºC</td>
             </tr>
             <tr>
-              <td>Nov 8th</td>
+              <td>Nov 10th</td>
               <td> {Math.round(results.main.temp - 271.15).toFixed(0)} ºC</td>
             </tr>
             <tr>
-              <td>Nov 9th</td>
+              <td>Nov 11th</td>
               <td> {Math.round(results.main.temp - 274.15).toFixed(0)} ºC</td>
             </tr>
             <tr>
-              <td>Nov 10th</td>
+              <td>Nov 12th</td>
               <td> {Math.round(results.main.temp - 273.15).toFixed(0)} ºC</td>
             </tr>
             <tr>
-              <td>Nov 11th</td>
+              <td>Nov 13th</td>
               <td> {Math.round(results.main.temp - 272.15).toFixed(0)} ºC</td>
             </tr>
             <tr>
-              <td>Nov 12th</td>
+              <td>Nov 14th</td>
               <td> {Math.round(results.main.temp - 275.15).toFixed(0)} ºC</td>
             </tr>
           </table>

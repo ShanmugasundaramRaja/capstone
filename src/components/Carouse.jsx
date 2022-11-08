@@ -151,6 +151,7 @@ export default function Carouse({ handleLogout }) {
         className="back"
       >
         <NavBar handleLogout={handleLogout} />
+
         <Row>
           <Col>
             <Container
@@ -203,6 +204,7 @@ export default function Carouse({ handleLogout }) {
                     className="btn del delonly2  btn-lg ml-3 "
                     style={{
                       border: "solid 2px white",
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
 
                       maxWidth: "350px",
                     }}
@@ -218,7 +220,7 @@ export default function Carouse({ handleLogout }) {
                     className="btn del delonly  btn-lg ml-3 "
                     style={{
                       border: "solid 2px white",
-
+                      boxshadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
                       maxWidth: "350px",
                     }}
                     onClick={() => deleteFromFirebase(elem)}

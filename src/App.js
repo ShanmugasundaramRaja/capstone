@@ -14,6 +14,7 @@ import Map from './components/Map';
 import Carouse from './components/Carouse';
 
 import User from './components/User';
+import Personal from './components/Personal'
 
 
 import { useState} from 'react';
@@ -64,11 +65,13 @@ newmail=e.target.value
 
  const changePass=()=>{
   updatePassword(customer,newpass).then(()=>{
+    alert("Password changed")
     console.log("Password changed")
   }).catch((error)=>{console.log(error)})
  }
  const changeMail=()=>{
   updateEmail(customer,newmail).then(()=>{
+    alert("Email changed")
     console.log("Email changed")
   }).catch((error)=>{console.log(error)})
  }
@@ -150,6 +153,7 @@ newmail=e.target.value
         
           
           <Route path="/dum" element={<Trial/>}/>
+          <Route path="/per" element={<Personal handleLogout={handleLogout}/>}/>
         
         
      

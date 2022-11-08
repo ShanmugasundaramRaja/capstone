@@ -33,13 +33,13 @@ export default function Home() {
   const [date1, setDate1] = useState();
   const [date2, setDate2] = useState();
   const [arr, setArr] = useState([
-    "6th Nov 22,Thursday",
-    "7th Nov 22, Friday",
     "8th Nov 22, Saturday",
-    "9th Nov 22, Sunday",
-    "10th Nov 22, Sunday",
-    "11th Nov 22, Monday",
-    "12th Nov 22, Tuesday",
+    "9th Nov 22, Wednesday",
+    "10th Nov 22, Thursday",
+    "11th Nov 22, Friday",
+    "12th Nov 22, Saturday",
+    "13th Nov 22, Sunday",
+    "14th Nov 22,Monday",
   ]);
   const [more, setMore] = useState([]);
 

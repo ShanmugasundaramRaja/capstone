@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "../styles/Home.css";
-import { BsFillBellFill } from "react-icons/bs";
-import { FaGlobeAmericas, FaRegEnvelope, FaHome, FaEdit } from "react-icons/fa";
+
+import { FaHome, FaEdit, FaInfoCircle } from "react-icons/fa";
+import { MdPhotoCamera } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 
@@ -40,7 +41,7 @@ export default function NavBar({ handleLogout }) {
               <a className="nav-link" href="#!">
                 <div>
                   <Link to="/images">
-                    <FaGlobeAmericas classNameName="mb-1"></FaGlobeAmericas>{" "}
+                    <MdPhotoCamera classNameName="mb-1"></MdPhotoCamera>{" "}
                   </Link>
                 </div>
                 Photos
@@ -56,6 +57,18 @@ export default function NavBar({ handleLogout }) {
                   </Link>
                 </div>
                 Planner
+              </a>
+            </li>
+          </ul>
+          <ul className="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+            <li className="nav-item text-center mx-2 mx-lg-1">
+              <a className="nav-link" href="#!">
+                <div>
+                  <Link to="/per">
+                    <FaInfoCircle classNameName="mb-1"></FaInfoCircle>{" "}
+                  </Link>
+                </div>
+                About
               </a>
             </li>
           </ul>
